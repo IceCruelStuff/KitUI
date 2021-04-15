@@ -1,3 +1,6 @@
+# If enabled, only server operators can use kits command
+require-operator-permission: false
+
 kits:
   classic:
     items:
