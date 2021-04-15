@@ -25,3 +25,11 @@ kits:
     boots:
       id: 313
       name: Diamond Boots
+    apples:
+      id: 322
+      name: Golden Apple
+      amount: 32
+    enchanted_apples:
+      id: 466
+      name: Enchanted Golden Apple
+      amount: 32
