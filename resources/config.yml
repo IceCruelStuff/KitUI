@@ -1,0 +1,25 @@
+kits:
+  classic:
+    items:
+      sword:
+        id: 264
+        name: Powerful Diamond Sword
+        enchantments:
+          sharpness: 5
+          knockback: 1
+      helmet:
+        id: 310
+        name: Diamond Helmet
+        enchantments:
+          protection: 3
+      chestplate:
+        id: 311
+        name: Diamond Chestplate
+        enchantments:
+          protection: 4
+      leggings:
+        id: 312
+        name: Diamond Leggings
+      boots:
+        id: 313
+        name: Diamond Boots
