@@ -42,7 +42,7 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
                 foreach ($kit as $kitItem) {
                     $amount = 1;
                     if (array_key_exists("amount", $kitItem)) {
-                        $amount = (int) $kit[$kitItem]["amount"];
+                        $amount = (int) $kitItem["amount"];
                     }
                     $item = Item::get($kitItem["id"], 0, $amount);
                     if (isset($kitItem["enchantments"])) {
