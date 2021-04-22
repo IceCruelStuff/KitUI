@@ -7,18 +7,26 @@ kits:
       id: 264
       name: Powerful Diamond Sword
       enchantments:
-        sharpness: 5
-        knockback: 1
+        sharpness:
+          id: 9
+          level: 5
+        knockback:
+          id: 12
+          level: 1
     helmet:
       id: 310
       name: Diamond Helmet
       enchantments:
-        protection: 3
+        protection:
+          id: 0
+          level: 3
     chestplate:
       id: 311
       name: Diamond Chestplate
       enchantments:
-        protection: 4
+        protection:
+          id: 0
+          level: 4
     leggings:
       id: 312
       name: Diamond Leggings
