@@ -36,28 +36,32 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
             return;
         }
 
-        if (isset($args[0])) {
-            if (array_key_exists($args[0], $this->plugin->kits)) {
-                $kit = $this->plugin->kits[$args[0]];
-                foreach ($kit as $kitItem) {
-                    $amount = 1;
-                    if (array_key_exists("amount", $kitItem)) {
-                        $amount = (int) $kitItem["amount"];
-                    }
-                    $item = Item::get($kitItem["id"], 0, $amount);
-                    if (isset($kitItem["enchantments"])) {
-                        foreach ($kitItem["enchantments"] as $key => $value) {
-                            $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantmentByName($key), $value));
+        if ($sender instanceof Player) {
+            if (isset($args[0])) {
+                if (array_key_exists($args[0], $this->plugin->kits)) {
+                    $kit = $this->plugin->kits[$args[0]];
+                    foreach ($kit as $kitItem) {
+                        $amount = 1;
+                        if (array_key_exists("amount", $kitItem)) {
+                            $amount = (int) $kitItem["amount"];
                         }
+                        $item = Item::get($kitItem["id"], 0, $amount);
+                        if (isset($kitItem["enchantments"])) {
+                            foreach ($kitItem["enchantments"] as $key => $value) {
+                                $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantmentByName($key), $value));
+                            }
+                        }
+                        $sender->getInventory()->addItem($item);
                     }
-                    $sender->getInventory()->addItem($item);
+                    $sender->sendMessage(TextFormat::GREEN . "You received " . $args[0] . " kit");
+                } else {
+                    $sender->sendMessage(TextFormat::RED . "That kit doesn't exist");
                 }
-                $sender->sendMessage(TextFormat::GREEN . "You received " . $args[0] . " kit");
             } else {
-                $sender->sendMessage(TextFormat::RED . "That kit doesn't exist");
+                $sender->sendMessage(TextFormat::RED . "Please specify a kit");
             }
         } else {
-            $sender->sendMessage(TextFormat::RED . "Please specify a kit");
+            $sender->sendMessage(TextFormat::RED . "Please run this command in-game");
         }
     }
 
