@@ -41,7 +41,7 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
                 $kit = $this->plugin->kits[$args[0]];
                 foreach ($kit as $kitItem) {
                     $amount = 1;
-                    if (isset($kit[$kitItem]["amount"])) { // array_key_exists()
+                    if (array_key_exists("amount", $kit[$kitItem])) {
                         $amount = (int) $kit[$kitItem]["amount"];
                     }
                     $item = Item::get($kit[$kitItem]["id"], 0, $amount);
