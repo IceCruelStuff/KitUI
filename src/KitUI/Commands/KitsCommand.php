@@ -52,6 +52,7 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
                     }
                     $sender->getInventory()->addItem($item);
                 }
+                $sender->sendMessage(TextFormat::GREEN . "You received " . $args[0] . " kit");
             } else {
                 $sender->sendMessage(TextFormat::RED . "That kit doesn't exist");
             }
