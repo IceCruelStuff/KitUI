@@ -1,6 +1,14 @@
 # If enabled, only server operators can use kits command
 require-operator-permission: false
 
+# You can add metadata to an item
+# Example:
+# items:
+#   block-wool:
+#     id: 35
+#     amount: 64
+#     meta: 1
+
 kits:
   classic:
     # Display Name will be shown on UI
@@ -8,7 +16,7 @@ kits:
     items:
       sword:
         id: 264
-        name: Powerful Diamond Sword
+        name: Powerful Diamond Sword # Note: this is optional
         enchantments:
           sharpness: 5
           knockback: 1
