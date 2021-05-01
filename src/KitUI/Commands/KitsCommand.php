@@ -55,16 +55,24 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
     }
 
     private function giveKit($player, $kit) {
-        foreach ($kit as $kitItem) {
+        $kitItems = $kit["items"];
+        foreach ($kitItems as $kitItem) {
             $amount = 1;
             if (array_key_exists("amount", $kitItem)) {
                 $amount = (int) $kitItem["amount"];
             }
-            $item = Item::get($kitItem["id"], 0, $amount);
-            if (isset($kitItem["enchantments"])) {
+            $meta = 0;
+            if (array_key_exists("meta", $kitItem)) {
+                $meta = (int) $kitItem["meta"];
+            }
+            $item = Item::get($kitItem["id"], $meta, $amount);
+            if (array_key_exists("enchantments", $kitItem)) {
                 foreach ($kitItem["enchantments"] as $key => $value) {
                     $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantmentByName($key), $value));
                 }
+            }
+            if (array_key_exists("name", $kitItem)) {
+                $item->setCustomName($kitItem[$name]);
             }
             $sender->getInventory()->addItem($item);
         }
@@ -82,10 +90,8 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
             }
             $closeButtonIndex = count($kits) - 1;
             for ($i = 0; $i < $closeButtonIndex; $i++) {
-                switch ($data) {
-                    case $i:
-                        $this->giveKit($player, $kits[$i]);
-                        break;
+                if ($data === $i) {
+                    $this->giveKit($player, $kits[$i]);
                 }
             }
             switch ($data) {
@@ -95,6 +101,7 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
         });
         $form->setTitle("Kits");
         foreach ($this->plugin->kits as $key => $value) {
+            // TODO: display name
             $form->addButton($key);
         }
         $form->addButton("Close");
