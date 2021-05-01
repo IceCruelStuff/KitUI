@@ -110,6 +110,7 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
             }
         }
         $form->addButton("Close");
+        $form->sendToPlayer($sender);
     }
 
 }
