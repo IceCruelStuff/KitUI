@@ -91,16 +91,18 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
             foreach ($this->plugin->kits as $kit) {
                 $kits[] = $kit;
             }
-            $closeButtonIndex = count($kits) - 1;
-            for ($i = 0; $i < $closeButtonIndex; $i++) {
+            foreach ($kits as $key => $value) {
                 switch ($data) {
-                    case $i:
-                        $this->giveKit($player, $kit[$i]);
+                    case $key:
+                        $this->giveKit($player, $kit[$key]);
                         break;
                 }
             }
+            $closeButtonIndex = count($kits);
             switch ($data) {
                 case $closeButtonIndex:
+                    break;
+                default:
                     break;
             }
         });
