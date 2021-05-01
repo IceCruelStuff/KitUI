@@ -82,7 +82,7 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
     }
 
     private function sendForm($sender) {
-        $form = new SimpleForm(function (Player $player, array $data = null) {
+        $form = new SimpleForm(function (Player $player, $data = null) {
             if ($data === null) {
                 return;
             }
