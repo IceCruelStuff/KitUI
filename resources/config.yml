@@ -3,6 +3,8 @@ require-operator-permission: false
 
 kits:
   classic:
+    # Display Name will be shown on UI
+    display-name: Classic Kit
     sword:
       id: 264
       name: Powerful Diamond Sword
