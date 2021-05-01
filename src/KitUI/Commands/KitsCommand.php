@@ -90,8 +90,10 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
             }
             $closeButtonIndex = count($kits) - 1;
             for ($i = 0; $i < $closeButtonIndex; $i++) {
-                if ($data == $i) {
-                    $this->giveKit($player, $kits[$i]);
+                switch ($data) {
+                    case $i:
+                        $this->giveKit($player, $kit[$i]);
+                        break;
                 }
             }
             switch ($data) {
