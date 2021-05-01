@@ -12,7 +12,7 @@ require-operator-permission: false
 kits:
   classic:
     # Display Name will be shown on UI
-    display-name: Classic Kit
+    displayName: Classic Kit
     items:
       sword:
         id: 264
