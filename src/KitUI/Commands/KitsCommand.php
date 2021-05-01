@@ -55,7 +55,10 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
     }
 
     private function giveKit($player, $kit) {
-        $kitItems = $kit["items"];
+        $kitItems = null;
+        if (array_key_exists("items", $kit)) {
+            $kitItems = $kit["items"];
+        }
         foreach ($kitItems as $kitItem) {
             $amount = 1;
             if (array_key_exists("amount", $kitItem)) {
