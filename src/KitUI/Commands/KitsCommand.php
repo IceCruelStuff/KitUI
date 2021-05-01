@@ -12,13 +12,13 @@ use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat;
 use pocketmine\Player;
 use jojoe77777\FormAPI\SimpleForm;
-use KitUI\Main;
+use KitUI\KitUI;
 
 class KitsCommand extends Command implements PluginIdentifiableCommand {
 
     private $plugin;
 
-    public function __construct(Main $plugin) {
+    public function __construct(KitUI $plugin) {
         $this->plugin = $plugin;
         parent::__construct(
             "kit",
