@@ -1,6 +1,9 @@
 # KitUI
 KitUI plugin for PocketMine-MP.
 
+## Requirements
+- **[FormAPI](https://github.com/jojoe77777/FormAPI)**
+
 ## Downloads
 Download the latest build from **[Releases](https://github.com/IceCruelStuff/KitUI/releases/latest)**.
 
