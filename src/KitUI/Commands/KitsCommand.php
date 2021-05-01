@@ -101,8 +101,11 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
         });
         $form->setTitle("Kits");
         foreach ($this->plugin->kits as $key => $value) {
-            // TODO: display name
-            $form->addButton($key);
+            if (array_key_exists("displayName", $this->plugin->kits[$key])) {
+                $form->addButton($this->plugin->kits[$key]["displayName"]);
+            } else {
+                $form->addButton($key);
+            }
         }
         $form->addButton("Close");
     }
