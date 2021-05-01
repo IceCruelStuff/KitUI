@@ -1,35 +1,46 @@
 # If enabled, only server operators can use kits command
 require-operator-permission: false
 
+# You can add metadata to an item
+# Example:
+# items:
+#   block-wool:
+#     id: 35
+#     amount: 64
+#     meta: 1
+
 kits:
   classic:
-    sword:
-      id: 264
-      name: Powerful Diamond Sword
-      enchantments:
-        sharpness: 5
-        knockback: 1
-    helmet:
-      id: 310
-      name: Diamond Helmet
-      enchantments:
-        protection: 3
-    chestplate:
-      id: 311
-      name: Diamond Chestplate
-      enchantments:
-        protection: 4
-    leggings:
-      id: 312
-      name: Diamond Leggings
-    boots:
-      id: 313
-      name: Diamond Boots
-    apples:
-      id: 322
-      name: Golden Apple
-      amount: 32
-    enchanted_apples:
-      id: 466
-      name: Enchanted Golden Apple
-      amount: 32
+    # Display Name will be shown on UI
+    displayName: Classic Kit
+    items:
+      sword:
+        id: 264
+        name: Powerful Diamond Sword # Note: this is optional
+        enchantments:
+          sharpness: 5
+          knockback: 1
+      helmet:
+        id: 310
+        name: Diamond Helmet
+        enchantments:
+          protection: 3
+      chestplate:
+        id: 311
+        name: Diamond Chestplate
+        enchantments:
+          protection: 4
+      leggings:
+        id: 312
+        name: Diamond Leggings
+      boots:
+        id: 313
+        name: Diamond Boots
+      apples:
+        id: 322
+        name: Golden Apple
+        amount: 32
+      enchanted_apples:
+        id: 466
+        name: Enchanted Golden Apple
+        amount: 32
