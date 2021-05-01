@@ -72,9 +72,9 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
                 }
             }
             if (array_key_exists("name", $kitItem)) {
-                $item->setCustomName($kitItem[$name]);
+                $item->setCustomName($kitItem["name"]);
             }
-            $sender->getInventory()->addItem($item);
+            $player->getInventory()->addItem($item);
         }
     }
 
@@ -90,7 +90,7 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
             }
             $closeButtonIndex = count($kits) - 1;
             for ($i = 0; $i < $closeButtonIndex; $i++) {
-                if ($data === $i) {
+                if ($data == $i) {
                     $this->giveKit($player, $kits[$i]);
                 }
             }
