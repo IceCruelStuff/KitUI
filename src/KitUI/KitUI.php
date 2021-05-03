@@ -31,4 +31,8 @@ class KitUI extends PluginBase {
         $command->sendForm($player);
     }
 
+    public function disable() {
+        $this->getServer()->getPluginManager()->disablePlugin($this);
+    }
+
 }
