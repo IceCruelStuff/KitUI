@@ -55,9 +55,12 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
     }
 
     private function giveKit($player, $kit) {
-        $kitItems = null;
         if (array_key_exists("items", $kit)) {
             $kitItems = $kit["items"];
+        } else {
+            $this->plugin->getLogger()->error("Your current config is broken. Please delete the config and restart server to regenerate a new one.");
+            $this->plugin->getLogger()->error("Disabling plugin...");
+            $this->plugin->disable();
         }
         foreach ($kitItems as $kitItem) {
             $amount = 1;
