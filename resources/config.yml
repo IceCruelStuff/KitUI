@@ -15,7 +15,7 @@ kits:
     displayName: Classic Kit
     items:
       sword:
-        id: 264
+        id: 276
         name: Powerful Diamond Sword # Note: this is optional
         enchantments:
           sharpness: 5
@@ -44,3 +44,10 @@ kits:
         id: 466
         name: Enchanted Golden Apple
         amount: 32
+      wool:
+        id: 35
+        amount: 64
+        meta: 1
+      planks:
+        id: 5
+        amount: 64
