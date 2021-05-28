@@ -10,9 +10,11 @@ use KitUI\Commands\KitsCommand;
 
 class KitUI extends PluginBase {
 
+    public static $instance = null;
     public $kits = [];
 
     public function onEnable() {
+        self::$instance = $this;
         $this->saveDefaultConfig();
         if ($this->getConfig()->get("require-operator-permission")) {
             $this->getServer()->getPluginManager()->addPermission(new Permission("kitui.kits", "Allows user to use /kits command", Permission::DEFAULT_OP));
@@ -27,7 +29,7 @@ class KitUI extends PluginBase {
     }
 
     public static function sendForm(Player $player) {
-        $command = new KitsCommand($this);
+        $command = new KitsCommand(self::$instance);
         $command->sendForm($player);
     }
 
