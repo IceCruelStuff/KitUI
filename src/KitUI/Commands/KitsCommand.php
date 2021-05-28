@@ -61,6 +61,7 @@ class KitsCommand extends Command implements PluginIdentifiableCommand {
             $this->plugin->getLogger()->error("Your current config is broken. Please delete the config and restart server to regenerate a new one.");
             $this->plugin->getLogger()->error("Disabling plugin...");
             $this->plugin->disable();
+            return;
         }
         foreach ($kitItems as $kitItem) {
             $amount = 1;
